@@ -11,33 +11,56 @@
       padding: 0;
       background-color: #f4f4f4;
     }
+    header {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      padding: 20px;
+      text-align: center;
+    }
     .hero {
       text-align: center;
       padding: 50px 20px;
       background-color: #333;
-      color: white;
+      color: rgb(255, 255, 255);
     }
     .about {
       max-width: 600px;
       margin: 20px auto;
       padding: 20px;
-      background-color: white;
+      background-color: rgb(255, 255, 255);
       border-radius: 8px;
+      color: rgb(0, 0, 0);
     }
     img {
       border-radius: 50%;
       object-fit: cover;
     }
+
   </style>
 </head>
 
 <body>
-
+ <header>  <h2>Christian Roy V. Bejerano</h2> 
+ </header>
   <section class="hero">
     <img src="../assets/channn.jpg" alt="ProfilePhoto" width="150px" height="150px" border-radius="50%" object-fit="cover"> 
-    <h1>Christian Roy V. Bejerano</h1>
-    <p>Network Administrator | Student | Web Developer</p>
-  </section>
+    <h1 id="type"> </h1>
+    <h1 id="type"></h1>
+
+    <script>
+    const text = "\"I make it work so you don’t have to.\"";
+    let i = 0;
+
+    function typeWriter() {
+    if (i < text.length) {
+    document.getElementById("type").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 80);
+    }
+  }
+
+   typeWriter();
+    </script>
 
   <section class="about">
     <h2>About Me</h2>
