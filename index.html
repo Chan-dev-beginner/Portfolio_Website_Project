@@ -117,83 +117,75 @@
       border: 1px solid rgba(255,255,255,0.15);
 }
 
-    /* Projects */
+        /* Projects */
     #projects{
-      padding:50px 20px;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:40px;
-      color:white;
-      font-size:40px;
+      padding:60px 20px;
     }
 
     .projects-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-      gap:30px;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:25px;
+      margin-top:40px;
     }
 
     .project-card{
-      background:rgba(255,255,255,0.95);
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15);
       border-radius:15px;
-      overflow:hidden;
-      box-shadow:0 4px 15px rgba(0,0,0,0.2);
-      transition:0.3s;
+      padding:20px;
+      text-align:center;
       backdrop-filter:blur(10px);
+      transition:0.3s;
     }
 
     .project-card:hover{
-      transform:translateY(-10px) scale(1.02);
+      transform:translateY(-10px) scale(1.03);
     }
 
     .project-card img{
       width:100%;
-      height:250px;
+      height:220px;
       object-fit:cover;
-    }
-
-    .project-content{
-      padding:25px;
+      border-radius:12px;
+      margin-bottom:20px;
     }
 
     .project-content h3{
-      font-size:30px;
-      margin-bottom:10px;
+      font-size:26px;
+      margin-bottom:15px;
+      color:#00e5ff;
     }
 
     .project-content p{
-      color:#000000;
+      color:white;
+      line-height:1.6;
       margin-bottom:20px;
     }
 
     .tags{
       display:flex;
+      justify-content:center;
       gap:10px;
       flex-wrap:wrap;
     }
 
     .tag{
-      background:#dbeafe;
-      color:#000000;
+      background:rgba(0,229,255,0.15);
+      border:1px solid rgba(0,229,255,0.3);
+      color:#00e5ff;
       padding:8px 14px;
       border-radius:20px;
       font-size:14px;
     }
-
-    footer {
-      background-color: rgba(255,255,255,0.9);
-      color: rgb(0, 0, 0);
-      text-align: center;
-      padding: 20px;
-      margin-top:40px;
-      backdrop-filter: blur(10px);
-    }
-    /* Skills Section */
-#skills{
-  padding:60px 20px;
-}
+   footer{
+    padding:60px 20px;
+    background:transparent;
+  }
+/* Skills Section */
+  #skills{
+    padding:60px 20px;
+  }
 
 .skills-container{
   display:grid;
@@ -314,7 +306,7 @@ nav a:hover::after{
     <h1>Christian Roy V. Bejerano</h1>
     <h2 id="type"></h2>
   <section class="hero">
-    
+
   </section>
 
   <section class="about">
@@ -377,7 +369,7 @@ nav a:hover::after{
         <img src="assets/network-troubleshooting-process-in-progress-silhouette-depicted-on-white-background-free-vector.jpg" alt="">
 
         <div class="project-content">
-          <h3 style="color: black;">Troubleshooting Tutorial Website</h3>
+          <h3>Troubleshooting Tutorial Website</h3>
           <p>
             A Website that has free tutorial videos for troubleshooting hardware.
           </p>
@@ -393,7 +385,7 @@ nav a:hover::after{
         <img src="assets/images.png" alt="">
 
         <div class="project-content">
-          <h3 style="color: black;">Library Book Borrowing System</h3>
+          <h3>Library Book Borrowing System</h3>
           <p>
             A simple library management system for tracking books and members.
           </p>
@@ -409,7 +401,7 @@ nav a:hover::after{
         <img src="assets/website-4.webp" alt="">
 
         <div class="project-content">
-          <h3 style="color: black;">Clearance System</h3>
+          <h3>Clearance System</h3>
           <p>
             A simple Clearance Management System for managing student clearances.
           </p>
@@ -424,27 +416,40 @@ nav a:hover::after{
     </div>
   </section>
 
-  <footer>
-    <section id="contact">
-    <h2>Contact Me:</h2>
-    <p>
-    <a href="https://www.facebook.com/samss.lekss"
-       target="_blank"
-       style="color:rgb(0, 0, 0); text-decoration:none;">
+<footer id="contact">
 
-       <h3>Facebook: Chan Chan</h3>
-    </a>
-  </p>
-    <p>
-    <a href="mailto:cbejerano13@gmail.com"
-       target="_blank"
-       style="color:rgb(0, 0, 0); text-decoration:none;">
+  <h2 class="section-title">Contact Me</h2>
 
-       <h3>Email: cbejerano13@gmail.com</h3>
-    </a>
-  </p>
-  
-  </footer>
+  <div class="skills-container">
+
+    <div class="skill-card">
+      <h3>Facebook</h3>
+
+      <p>
+        <a href="https://www.facebook.com/samss.lekss"
+        target="_blank"
+        style="color:white; text-decoration:none;">
+
+        Chan Chan
+        </a>
+      </p>
+    </div>
+
+    <div class="skill-card">
+      <h3>Email</h3>
+
+      <p>
+        <a href="mailto:cbejerano13@gmail.com"
+        style="color:white; text-decoration:none;">
+
+        cbejerano13@gmail.com
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+</footer>
 
   <script>
 
