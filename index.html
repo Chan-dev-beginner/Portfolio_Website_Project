@@ -308,19 +308,34 @@
   <script>
 
     /* Typewriter */
+ 
     const text = "\"I make it work so you don’t have to.\"";
     let i = 0;
 
     function typeWriter() {
+
+      const element = document.getElementById("type");
+
       if (i < text.length) {
-        document.getElementById("type").innerHTML += text.charAt(i);
+
+        element.innerHTML += text.charAt(i);
         i++;
+
         setTimeout(typeWriter, 80);
+
+      } else {
+
+        // wait before restarting
+        setTimeout(() => {
+          element.innerHTML = "";
+          i = 0;
+          typeWriter();
+        }, 1500);
+
       }
     }
 
-    typeWriter();
-
+typeWriter();
     /* Floating particles */
     for(let i = 0; i < 80; i++){
 
