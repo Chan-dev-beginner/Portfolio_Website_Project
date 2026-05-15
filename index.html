@@ -272,6 +272,30 @@ nav a:hover::after{
   width:100%;
 }
 
+/* Smooth Scroll */
+html{
+  scroll-behavior:smooth;
+}
+
+/* Section Animation */
+.hidden{
+  opacity:0;
+  transform:translateY(80px);
+  transition:all 1s ease;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Active Navbar Glow */
+nav a.active{
+  color:#00e5ff;
+  text-shadow:0 0 10px #00e5ff;
+}
+
+
   </style>
 </head>
 
@@ -506,6 +530,54 @@ typeWriter();
       bg.style.transform =
       `scale(1.1) translate(${x}px, ${y}px)`;
     });
+
+    /* Reveal Sections on Scroll */
+const hiddenElements = document.querySelectorAll(".hidden");
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach((entry) => {
+
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+
+  });
+
+});
+
+hiddenElements.forEach((el) => observer.observe(el));
+
+/* Active Navbar Highlight */
+const sections = document.querySelectorAll("section, footer");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+  let current = "";
+
+  sections.forEach((section) => {
+
+    const sectionTop = section.offsetTop;
+
+    if(pageYOffset >= sectionTop - 200){
+      current = section.getAttribute("id");
+    }
+
+  });
+
+  navLinks.forEach((link) => {
+
+    link.classList.remove("active");
+
+    if(link.getAttribute("href") === "#" + current){
+      link.classList.add("active");
+    }
+
+  });
+
+});
+
 
   </script>
 
