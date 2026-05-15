@@ -178,123 +178,128 @@
       border-radius:20px;
       font-size:14px;
     }
-   footer{
-    padding:60px 20px;
-    background:transparent;
+
+    /* Skills Section */
+    #skills{
+      padding:60px 20px;
+    }
+
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+      margin-top:40px;
+    }
+
+    .skill-card{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:15px;
+      padding:30px;
+      text-align:center;
+      backdrop-filter:blur(10px);
+      transition:0.3s;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-10px) scale(1.03);
+    }
+
+    .skill-card h3{
+      font-size:28px;
+      margin-bottom:15px;
+      color:#00e5ff;
+    }
+
+    .skill-card p{
+      color:white;
+      line-height:1.5;
+    }
+
+    /* Modern Header */
+    .navbar{
+      position:sticky;
+      top:0;
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 60px;
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#00e5ff;
+      letter-spacing:1px;
+    }
+
+    nav{
+      display:flex;
+      gap:30px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:white;
+      font-size:18px;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav a:hover{
+      color:#00e5ff;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:2px;
+      background:#00e5ff;
+      transition:0.3s;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    /* Smooth Scroll */
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* Section Animation */
+    .hidden{
+      opacity:0;
+      transform:translateY(80px);
+      transition:all 1s ease;
+    }
+
+    .show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* Active Navbar Glow */
+    nav a.active{
+      color:#00e5ff;
+      text-shadow:0 0 10px #00e5ff;
+    }
+
+    section{
+    padding-top:80px;
+    padding-bottom:80px;
   }
-/* Skills Section */
-  #skills{
-    padding:60px 20px;
+
+    section{
+    margin-bottom:180px;
   }
-
-.skills-container{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-  margin-top:40px;
-}
-
-.skill-card{
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(255,255,255,0.15);
-  border-radius:15px;
-  padding:30px;
-  text-align:center;
-  backdrop-filter:blur(10px);
-  transition:0.3s;
-}
-
-.skill-card:hover{
-  transform:translateY(-10px) scale(1.03);
-}
-
-.skill-card h3{
-  font-size:28px;
-  margin-bottom:15px;
-  color:#00e5ff;
-}
-
-.skill-card p{
-  color:white;
-  line-height:1.5;
-}
-
-/* Modern Header */
-.navbar{
-  position:sticky;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 60px;
-  background:rgba(0,0,0,0.4);
-  backdrop-filter:blur(10px);
-  z-index:1000;
-}
-
-.logo{
-  font-size:28px;
-  font-weight:bold;
-  color:#00e5ff;
-  letter-spacing:1px;
-}
-
-nav{
-  display:flex;
-  gap:30px;
-}
-
-nav a{
-  text-decoration:none;
-  color:white;
-  font-size:18px;
-  transition:0.3s;
-  position:relative;
-}
-
-nav a:hover{
-  color:#00e5ff;
-}
-
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0%;
-  height:2px;
-  background:#00e5ff;
-  transition:0.3s;
-}
-
-nav a:hover::after{
-  width:100%;
-}
-
-/* Smooth Scroll */
-html{
-  scroll-behavior:smooth;
-}
-
-/* Section Animation */
-.hidden{
-  opacity:0;
-  transform:translateY(80px);
-  transition:all 1s ease;
-}
-
-.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* Active Navbar Glow */
-nav a.active{
-  color:#00e5ff;
-  text-shadow:0 0 10px #00e5ff;
-}
-
 
   </style>
 </head>
@@ -325,12 +330,10 @@ nav a.active{
     alt="ProfilePhoto"
     width="500"
     height="500">
-
-    
+  
     <h1>Christian Roy V. Bejerano</h1>
     <h2 id="type"></h2>
   <section class="hero">
-
   </section>
 
   <section class="about">
@@ -440,7 +443,8 @@ nav a.active{
     </div>
   </section>
 
-<footer id="contact">
+  <!-- Contact Section -->
+<section id="contact" class="hidden">
 
   <h2 class="section-title">Contact Me</h2>
 
@@ -471,9 +475,22 @@ nav a.active{
       </p>
     </div>
 
+    <div class="skill-card">
+      <h3>GitHub</h3>
+
+      <p>
+        <a href="https://github.com/yourusername"
+        target="_blank"
+        style="color:white; text-decoration:none;">
+
+        Visit My GitHub
+        </a>
+      </p>
+    </div>
+
   </div>
 
-</footer>
+</section>
 
   <script>
 
