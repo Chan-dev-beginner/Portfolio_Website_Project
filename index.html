@@ -4,37 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
+
   <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
+      background: transparent;
+      overflow-x: hidden;
+      color: white;
+
     }
+
+    /* Animated Background */
+    .bg-animation{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:url("assets/digital-network-background-suitable-as-a-backdrop-for-projects-on-technology-networks-computing-and-digital-communications-WWKXKN.jpg") center/cover no-repeat;
+      z-index:-2;
+      animation: floatMove 15s ease-in-out infinite alternate;
+      transform: scale(1.1);
+    }
+
+    .overlay{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.55);
+      z-index:-1;
+    }
+
+    @keyframes floatMove{
+      0%{
+        transform:scale(1.05) translate(0px,0px);
+      }
+      50%{
+        transform:scale(1.1) translate(-20px,15px);
+      }
+      100%{
+        transform:scale(1.08) translate(20px,-15px);
+      }
+    }
+
+    /* Floating particles */
+    .particle{
+      position:fixed;
+      width:4px;
+      height:4px;
+      background:#6cf;
+      border-radius:50%;
+      box-shadow:0 0 10px #6cf;
+      animation: rise linear infinite;
+      z-index:-1;
+    }
+
+    @keyframes rise{
+      from{
+        transform:translateY(100vh);
+        opacity:0;
+      }
+      20%{
+        opacity:1;
+      }
+      to{
+        transform:translateY(-10vh);
+        opacity:0;
+      }
+    }
+
     header {
-      background-color: #ffffff;
+      background-color: rgba(255,255,255,0.9);
       color: rgb(0, 0, 0);
       padding: 20px;
+      backdrop-filter: blur(10px);
     }
+
     .hero {
       text-align: center;
-      padding: 50px 20px;
-      background-color: #333;
-      color: rgb(0, 0, 0);
+      padding: 80px 20px;
+      color: white;
     }
+
+    .hero img{
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid white;
+      box-shadow:0 0 20px rgba(255,255,255,0.5);
+    }
+
+    #type{
+      margin-top:20px;
+      font-size:40px;
+    }
+
     .about {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: rgb(255, 255, 255);
-      border-radius: 8px;
-      color: rgb(0, 0, 0);
-    }
-    img {
-      border-radius: 50%;
-      object-fit: cover;
-    }
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      color: white;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+}
+
     /* Projects */
+    #projects{
+      padding:50px 20px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:40px;
+      color:white;
+      font-size:40px;
+    }
+
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
@@ -42,15 +136,16 @@
     }
 
     .project-card{
-      background:#fff;
+      background:rgba(255,255,255,0.95);
       border-radius:15px;
       overflow:hidden;
-      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+      box-shadow:0 4px 15px rgba(0,0,0,0.2);
       transition:0.3s;
+      backdrop-filter:blur(10px);
     }
 
     .project-card:hover{
-      transform:translateY(-8px);
+      transform:translateY(-10px) scale(1.02);
     }
 
     .project-card img{
@@ -72,6 +167,7 @@
       color:#000000;
       margin-bottom:20px;
     }
+
     .tags{
       display:flex;
       gap:10px;
@@ -86,34 +182,42 @@
       font-size:14px;
     }
 
+    footer {
+      background-color: rgba(255,255,255,0.9);
+      color: rgb(0, 0, 0);
+      text-align: center;
+      padding: 20px;
+      margin-top:40px;
+      backdrop-filter: blur(10px);
+    }
+
   </style>
 </head>
 
 <body>
- <header>  <h2>Christian Roy V. Bejerano</h2> 
- </header>
+
+  <!-- Animated Background -->
+  <div class="bg-animation"></div>
+  <div class="overlay"></div>
+
+  <header>
+    <h2>Christian Roy V. Bejerano</h2>
+  </header>
+
   <section class="hero">
-    <img src="assets/channn.jpg" alt="ProfilePhoto" width="150px" height="150px" border-radius="50%" object-fit="cover"> 
-    <h1 id="type"> </h1>
+
+    <img src="assets/channn.jpg"
+    alt="ProfilePhoto"
+    width="150"
+    height="150">
+
     <h1 id="type"></h1>
 
-    <script>
-    const text = "\"I make it work so you don’t have to.\"";
-    let i = 0;
-
-    function typeWriter() {
-    if (i < text.length) {
-    document.getElementById("type").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 80);
-    }
-  }
-
-   typeWriter();
-    </script>
+  </section>
 
   <section class="about">
     <h2>About Me</h2>
+
     <p>
       Hello! I am a beginner web developer who enjoys creating simple and clean websites.
       I am passionate about learning new technologies, improving my coding skills, and building real-world projects.
@@ -122,46 +226,112 @@
 
   <!-- Projects -->
   <section id="projects">
-    <div class="container">
 
-      <h2 class="section-title">Featured Projects</h2>
+    <h2 class="section-title">Featured Projects</h2>
 
-      <div class="projects-grid">
+    <div class="projects-grid">
 
-        <div class="project-card">
-          <img src="assets\network-troubleshooting-process-in-progress-silhouette-depicted-on-white-background-free-vector.jpg" alt="">
+      <div class="project-card">
+        <img src="assets/network-troubleshooting-process-in-progress-silhouette-depicted-on-white-background-free-vector.jpg" alt="">
 
-          <div class="project-content">
-            <h3>Troubleshooting Tutorial Website</h3>
+        <div class="project-content">
+          <h3>Troubleshooting Tutorial Website</h3>
 
-            <p>
-              A Website that has free tutorial videos for troubleshooting hardware.
-            </p>
+          <p>
+            A Website that has free tutorial videos for troubleshooting hardware.
+          </p>
 
-            <div class="tags">
-              <span class="tag">Html</span>
-              <span class="tag">CSS</span>
-            </div>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
           </div>
         </div>
+      </div>
 
-        <div class="project-card">
-          <img src="assets/images.png" alt="">
+      <div class="project-card">
+        <img src="assets/images.png" alt="">
 
-          <div class="project-content">
-            <h3>Library system</h3>
+        <div class="project-content">
+          <h3>Library Book Borrowing System</h3>
 
-            <p>
-              A simple library management system for tracking books and members.
-            </p>
+          <p>
+            A simple library management system for tracking books and members.
+          </p>
 
-            <div class="tags">
-              <span class="tag">JAVA</span>
-              <span class="tag">MySQL</span>
-            </div>
+          <div class="tags">
+            <span class="tag">JAVA</span>
+            <span class="tag">MySQL</span>
           </div>
         </div>
+      </div>
 
+      <div class="project-card">
+        <img src="assets/website-4.webp" alt="">
+
+        <div class="project-content">
+          <h3>Clearance System</h3>
+
+          <p>
+            A simple Clearance Management System for managing student clearances.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JAVA</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <h2>Contact Me</h2>
+    <p>Email: your@email.com</p>
+  </footer>
+
+  <script>
+
+    /* Typewriter */
+    const text = "\"I make it work so you don’t have to.\"";
+    let i = 0;
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("type").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 80);
+      }
+    }
+
+    typeWriter();
+
+    /* Floating particles */
+    for(let i = 0; i < 80; i++){
+
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
+
+      particle.style.left = Math.random() * window.innerWidth + "px";
+      particle.style.animationDuration = (3 + Math.random() * 8) + "s";
+      particle.style.animationDelay = Math.random() * 5 + "s";
+
+      document.body.appendChild(particle);
+    }
+
+    /* Mouse parallax background */
+    const bg = document.querySelector(".bg-animation");
+
+    document.addEventListener("mousemove", (e) => {
+
+      let x = (window.innerWidth / 2 - e.pageX) / 40;
+      let y = (window.innerHeight / 2 - e.pageY) / 40;
+
+      bg.style.transform =
+      `scale(1.1) translate(${x}px, ${y}px)`;
+    });
+
+  </script>
 
 </body>
 </html>
