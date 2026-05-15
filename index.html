@@ -301,6 +301,84 @@
     margin-bottom:180px;
   }
 
+      /* Futuristic Footer */
+    .cool-footer{
+      position:relative;
+      margin-top:140px;
+      padding:70px 20px;
+      text-align:center;
+      overflow:hidden;
+
+      background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.45)
+      );
+
+      border-top:1px solid rgba(0,229,255,0.2);
+      backdrop-filter:blur(12px);
+    }
+
+    /* Glowing top line */
+    .cool-footer::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:80%;
+      height:2px;
+
+      background:linear-gradient(
+        to right,
+        transparent,
+        #00e5ff,
+        transparent
+      );
+
+      box-shadow:0 0 20px #00e5ff;
+    }
+
+    /* Name */
+    .cool-footer h2{
+      font-size:42px;
+      margin-bottom:15px;
+      color:#00e5ff;
+      letter-spacing:2px;
+      text-shadow:0 0 15px rgba(0,229,255,0.8);
+    }
+
+    /* Description */
+    .footer-text{
+      color:white;
+      opacity:0.85;
+      font-size:18px;
+      letter-spacing:1px;
+      margin-bottom:35px;
+    }
+
+    /* Copyright */
+    .copyright{
+      color:rgba(255,255,255,0.55);
+      font-size:14px;
+      letter-spacing:1px;
+    }
+
+    /* Floating glow effect */
+    .cool-footer::after{
+      content:"";
+      position:absolute;
+      width:300px;
+      height:300px;
+      background:#00e5ff;
+      filter:blur(140px);
+      opacity:0.12;
+
+      bottom:-180px;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
   </style>
 </head>
 
@@ -599,4 +677,19 @@ window.addEventListener("scroll", () => {
   </script>
 
 </body>
+
+<footer class="cool-footer">
+
+  <h2>Christian Roy V. Bejerano</h2>
+
+  <p class="footer-text">
+    Beginner Web Developer • Tech Enthusiast • Problem Solver
+  </p>
+
+  <p class="copyright">
+    © 2025 Christian Roy. All Rights Reserved.
+  </p>
+
+</footer>
+
 </html>
