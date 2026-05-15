@@ -227,6 +227,59 @@
   line-height:1.5;
 }
 
+/* Modern Header */
+.navbar{
+  position:sticky;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#00e5ff;
+  letter-spacing:1px;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+  text-decoration:none;
+  color:white;
+  font-size:18px;
+  transition:0.3s;
+  position:relative;
+}
+
+nav a:hover{
+  color:#00e5ff;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:#00e5ff;
+  transition:0.3s;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
   </style>
 </head>
 
@@ -236,10 +289,30 @@
   <div class="bg-animation"></div>
   <div class="overlay"></div>
 
-  <header>
+ <header class="navbar">
 
-  </header>
+  <div class="logo">
+    Chan Chan
+  </div>
 
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
+  <section id="home" class="hero">
+
+    <img src="assets/channn.jpg"
+    alt="ProfilePhoto"
+    width="500"
+    height="500">
+
+    
+    <h1>Christian Roy V. Bejerano</h1>
+    <h2 id="type"></h2>
   <section class="hero">
 
     <img src="assets/channn.jpg"
@@ -362,6 +435,7 @@
   </section>
 
   <footer>
+    <section id="contact">
     <h2>Contact Me:</h2>
     <p>
     <a href="https://www.facebook.com/samss.lekss"
